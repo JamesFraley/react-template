@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 
+import "./styles/app.scss";
+
 console.log("entering app.js")
 const app=document.getElementById('app');
 const jsx=(
