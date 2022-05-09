@@ -1,22 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { removeExpense } from '../actions/expenses'
 
-const ExpenseListItem = ({dispatch, id, description, amount, createdAt}) =>
-   (
+
+const ExpenseListItem = ({dispatch, id, description, amount, createdAt}) =>{
+   console.log("ExpenseListItem>id", id);
+   return (
    <div>
-      <h3>{description}</h3>
+      <Link to={`/edit/${id}`}>
+         <h3>{description}</h3>
+      </Link>
       <p>{amount} - {createdAt}</p>
       <button onClick={(e)=>{
          dispatch(removeExpense({id: id}))
       }}>Remove</button>
    </div>
-   );
-
-const mapStateToProps = () => {
-      return {
-         expenses: selectExpenses(state.expenses, state.filters)
-      };
-   };
+   )};
 
 export default connect()(ExpenseListItem);
+
+//      <NavLink to="edit/{id}" className={({ isActive }) => isActive ? 'isActive' : ''}>Dashboard</NavLink><br/><br/>

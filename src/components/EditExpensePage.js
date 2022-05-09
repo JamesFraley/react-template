@@ -1,11 +1,13 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
 
-const EditExpensePage = (props) => {
-  console.log(props);
-  return (
-    <div>
-      Editing the expense with id of {props.match.params.id}
-    </div>
+const EditExpensePage = () => {
+   let params = useParams();
+   console.log("EditExpensePage>props", params);
+   return (
+      <div>
+         Editing the expense with id of {params.id}
+      </div>
   );
 };
 
